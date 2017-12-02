@@ -41,11 +41,12 @@ public class UserController {
 
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public void insertUser(@RequestBody User user) {
+	public boolean insertUser(@RequestBody User user) {
 		if (null != findOne(user.getEmail()))
 			customRepository.updateFBToken(user);
 		else
 			repository.insert(user);
+		return true;
 	}
 
 	@RequestMapping(value = "/{email}", method = RequestMethod.DELETE)
