@@ -39,7 +39,6 @@ public class CustomRepositoryImpl implements CustomRepository {
 			update.set("appointmentType", user.getAppointmentType());
 			update.set("appointmentDate", user.getAppointmentDate());
 			update.set("appointmentTime", user.getAppointmentTime());
-			update.set("appointmentType", user.getAppointmentType());
 			update.set("phone", user.getPhone());
 			update.set("city", user.getCity());
 			update.set("userProblem", user.getUserProblem());

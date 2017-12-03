@@ -29,10 +29,7 @@ public class User {
 	private String appointmentTime;
 	private String userType;
 	private String userProblem;
-	private Prescription healthPrescription;
-	private Prescription skinPrescription;
-	private Prescription weightLossPrescription;
-	private Prescription dentalPrescription;
+	private Prescription prescription;
 	private List<Order> orders;
 
 	public long getId() {
@@ -138,37 +135,13 @@ public class User {
 	public void setUserProblem(String userProblem) {
 		this.userProblem = userProblem;
 	}
-
-	public Prescription getHealthPrescription() {
-		return healthPrescription;
+	
+	public Prescription getPrescription() {
+		return prescription;
 	}
 
-	public void setHealthPrescription(Prescription healthPrescription) {
-		this.healthPrescription = healthPrescription;
-	}
-
-	public Prescription getSkinPrescription() {
-		return skinPrescription;
-	}
-
-	public void setSkinPrescription(Prescription skinPrescription) {
-		this.skinPrescription = skinPrescription;
-	}
-
-	public Prescription getWeightLossPrescription() {
-		return weightLossPrescription;
-	}
-
-	public void setWeightLossPrescription(Prescription weightLossPrescription) {
-		this.weightLossPrescription = weightLossPrescription;
-	}
-
-	public Prescription getDentalPrescription() {
-		return dentalPrescription;
-	}
-
-	public void setDentalPrescription(Prescription dentalPrescription) {
-		this.dentalPrescription = dentalPrescription;
+	public void setPrescription(Prescription prescription) {
+		this.prescription = prescription;
 	}
 
 	public List<Order> getOrders() {
