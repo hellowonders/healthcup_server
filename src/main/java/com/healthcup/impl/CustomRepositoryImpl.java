@@ -26,7 +26,7 @@ public class CustomRepositoryImpl implements CustomRepository {
 
 	@Override
 	public void updateFBToken(User user) {
-		template.updateFirst(Query.query(Criteria.where("email").is(user.getEmail())), Update.update("userProfile", user.getUserProfile()), User.class);
+		template.updateFirst(Query.query(Criteria.where("email").is(user.getEmail())), Update.update("fbToken", user.getFbToken()), User.class);
 	}
 	
 	@Override

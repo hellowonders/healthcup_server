@@ -23,6 +23,7 @@ public class User {
 	private String address;
 	private String city;
 	private String state;
+	private String fbToken;
 	private String appointmentType;
 	private Date appointmentDate;
 	private String appointmentTime;
@@ -88,7 +89,14 @@ public class User {
 		this.state = state;
 	}
 
-	
+	public String getFbToken() {
+		return fbToken;
+	}
+
+	public void setFbToken(String fbToken) {
+		this.fbToken = fbToken;
+	}
+
 	public String getUserProfile() {
 		return userProfile;
 	}
