@@ -23,11 +23,11 @@ public class User {
 	private String address;
 	private String city;
 	private String state;
-	private String fbToken;
 	private String appointmentType;
 	private Date appointmentDate;
 	private String appointmentTime;
 	private String userType;
+	private String userProfile;
 	private String userProblem;
 	private Prescription prescription;
 	private List<Order> orders;
@@ -88,12 +88,13 @@ public class User {
 		this.state = state;
 	}
 
-	public String getFbToken() {
-		return fbToken;
+	
+	public String getUserProfile() {
+		return userProfile;
 	}
 
-	public void setFbToken(String fbToken) {
-		this.fbToken = fbToken;
+	public void setUserProfile(String userProfile) {
+		this.userProfile = userProfile;
 	}
 
 	public String getAppointmentType() {
