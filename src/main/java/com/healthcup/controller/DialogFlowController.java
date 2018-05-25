@@ -5,14 +5,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.ws.rs.POST;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.healthcup.domain.Appointment;
@@ -27,8 +26,7 @@ public class DialogFlowController {
 	@Autowired(required = true)
 	UserController userController;
 
-	@RequestMapping("/")
-	@POST
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String process(@RequestBody String body) {
 		System.out.println("SERVER : " + body);
 		String email = "", uname = "", fulfilmentText = "Unable to process the request.";
