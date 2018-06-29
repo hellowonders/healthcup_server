@@ -28,12 +28,7 @@ public class UserController {
 	public List<User> getAllUsers() {
 		return repository.findAll();
 	}
-	
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String test() {
-		return "Test Success !";
-	}
-	
+
 	@RequestMapping(value = "/email/{email}", method = RequestMethod.GET)
 	public User findOne(@PathVariable("email") String email) {
 		return customRepository.findByEmail(email);

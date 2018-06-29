@@ -52,6 +52,7 @@ public class AppointmentController {
 		repository.save(appointment);
 	}
 	
+	
 	@RequestMapping(value = "/{email}", method = RequestMethod.DELETE)
 	public void deleteAppointment(@PathVariable("email") String email) {
 		repository.delete(findOne(email));
