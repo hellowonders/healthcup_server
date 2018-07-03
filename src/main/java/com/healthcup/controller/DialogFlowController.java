@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.google.api.services.dialogflow.v2beta1.model.GoogleCloudDialogflowV2beta1Context;
 import com.google.api.services.dialogflow.v2beta1.model.GoogleCloudDialogflowV2beta1WebhookResponse;
 import com.healthcup.domain.Appointment;
+import com.healthcup.domain.Prescription;
 import com.healthcup.domain.User;
 
 @RestController
@@ -61,8 +62,13 @@ public class DialogFlowController {
 					fulfilmentText = "Hi " + uname
 							+ ", Welcome to HealthCup, the one stop solution for all health problems. Would you like to book an appointment ?";
 				else {
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-					fulfilmentText = "Hi " + uname + ", you have an existing appointment scheduled on "+formatter.format(appointment.getUser().getAppointmentDate())+" at "+ appointment.getUser().getAppointmentTime()+" Would you like to reschedule/ cancel it ?";
+					Prescription prescription = appointment.getUser().getPrescription();
+					if (prescription != null) {
+						fulfilmentText = prescription.getComments();
+					} else {
+						SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+						fulfilmentText = "Hi " + uname + ", you have an existing appointment scheduled on "+formatter.format(appointment.getUser().getAppointmentDate())+" at "+ appointment.getUser().getAppointmentTime()+" Would you like to reschedule/ cancel it ?";
+					}
 				}
 			} else if (intent.getString("displayName").equalsIgnoreCase("ScheduleAppointment") || intent.getString("displayName").equalsIgnoreCase("Welcome Intent - Yes")) {
 				if (email.isEmpty()) {throw new Exception();}

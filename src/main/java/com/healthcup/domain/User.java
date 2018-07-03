@@ -3,7 +3,6 @@ package com.healthcup.domain;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,10 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
-	@Id
-	private long id;
 	private String uname;
-
 	@Indexed(unique = true)
 	private String email;
 	private String phone;
@@ -32,14 +28,6 @@ public class User {
 	private String userProblem;
 	private Prescription prescription;
 	private List<Order> orders;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getUname() {
 		return uname;

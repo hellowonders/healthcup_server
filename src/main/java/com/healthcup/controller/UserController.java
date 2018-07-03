@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.healthcup.api.AppointmentRepository;
 import com.healthcup.api.CustomRepository;
 import com.healthcup.api.Repository;
 import com.healthcup.domain.User;
@@ -23,7 +24,9 @@ public class UserController {
 	Repository repository;
 	@Autowired(required = true)
 	CustomRepository customRepository;
-
+	@Autowired(required = true)
+	AppointmentController appointmentController;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public List<User> getAllUsers() {
 		return repository.findAll();
@@ -52,6 +55,7 @@ public class UserController {
 	@RequestMapping(value = "/{email}", method = RequestMethod.DELETE)
 	public void deleteUser(@PathVariable("email") String email) {
 		repository.delete(findOne(email));
+		appointmentController.deleteAppointment(email);
 	}
 
 	@RequestMapping(value = "/bookAppointment", method = RequestMethod.POST)
