@@ -48,6 +48,7 @@ public class UserController {
 		if (null != findOne(user.getEmail()))
 			customRepository.updateFBToken(user);
 		else
+			user.setId(null);
 			repository.insert(user);
 		return true;
 	}
