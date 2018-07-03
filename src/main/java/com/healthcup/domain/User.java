@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class User {
 
 	@Id
-	private Long id;
+	private String id;
 	private String uname;
 
 	@Indexed(unique = true)
@@ -33,11 +33,11 @@ public class User {
 	private Prescription prescription;
 	private List<Order> orders;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

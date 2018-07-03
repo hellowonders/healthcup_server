@@ -56,7 +56,8 @@ public class UserController {
 	@RequestMapping(value = "/{email}", method = RequestMethod.DELETE)
 	public void deleteUser(@PathVariable("email") String email) {
 		repository.delete(findOne(email));
-		appointmentController.deleteAppointment(email);
+		if (appointmentController.findOne(email) != null) 
+			appointmentController.deleteAppointment(email);
 	}
 
 	@RequestMapping(value = "/bookAppointment", method = RequestMethod.POST)
